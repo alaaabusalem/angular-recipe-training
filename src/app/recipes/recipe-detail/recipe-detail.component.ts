@@ -26,4 +26,9 @@ this.recipeDetail=this.recipeService.GetTheRecipe(this.index);
  Edit(){
 this.router.navigate(['edit'],{relativeTo: this.route});
  }
+ DeleteRecipe(){
+  this.recipeService.DeleteRecipe(this.index);
+  this.router.navigate(['./recipes']);
+
+ }
 }
