@@ -17,6 +17,7 @@ export class RecipeService{
 
        // shRecipeDitailsEvent= new EventEmitter<Recipe>();
        shRecipeDitailsEvent= new Subject<Recipe>();
+      RecipeesEvent= new Subject<Recipe[]>();
        public GetRecipeArr(){
             return this.recipesList.slice();
         }
@@ -30,5 +31,19 @@ export class RecipeService{
      GetTheRecipe(index:number){
       return this.recipesList.slice()[index];
      }
+     AddRecipe(recp:Recipe){
+       this.recipesList.push(recp);
+       this.RecipeesEvent.next(this.recipesList);
+     }
 
+     UpdateRecipe(index:number,recp:Recipe){
+      this.recipesList[index]=recp;
+      this.RecipeesEvent.next(this.recipesList);
+     }
+
+     DeleteRecipe(index:number){
+      this.recipesList.splice(index,1);
+      this.RecipeesEvent.next(this.recipesList);
+
+     }
 }

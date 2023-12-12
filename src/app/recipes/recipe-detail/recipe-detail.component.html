@@ -6,9 +6,9 @@
       Manage Recipe
       </button>
       <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-        <a class="dropdown-item" href="#">Action</a>
-        <a class="dropdown-item" href="#">Another action</a>
-        <a class="dropdown-item" href="#">Something else here</a>
+        <a class="dropdown-item" (click)="AddToShopping()" style="cursor: pointer;">Add To Shopping List</a>
+        <a class="dropdown-item" style="cursor: pointer;" (click)="DeleteRecipe()">Delete</a>
+        <a class="dropdown-item" (click)="Edit()" style="cursor: pointer;">Edit</a>
       </div>
     </div>
  
@@ -17,9 +17,5 @@
       <p>{{recipeDetail.description}}</p>
       <img [src]="recipeDetail.imageUrl">
       <p *ngFor="let ing of recipeDetail.ingS">==>>>> {{ing.name}}  {{ing.amount}}</p>
-      <button (click)="AddToShopping()" class="btn btn-secondary">
-        AddToShoppList
-      </button>
-      <button (click)="Edit()" class="btn btn-secondary">
-        Edit
-      </button>
+      
+     
